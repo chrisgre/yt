@@ -234,6 +234,10 @@ module Yt
         playlists.delete_all attributes
       end
 
+    ### CONTENT DETAILS ###
+    
+      has_attribute :content_details  
+
     ### PRIVATE API ###
 
       # @private
@@ -241,6 +245,9 @@ module Yt
       # if the response includes them
       def initialize(options = {})
         super options
+        if options[:content_details]
+          @content_details = options[:content_details]
+        end
         if options[:statistics]
           @statistics_set = StatisticsSet.new data: options[:statistics]
         end

@@ -12,6 +12,7 @@ module Yt
       def attributes_for_new_item(data)
         super(data).tap do |attributes|
           attributes[:statistics] = data['statistics']
+          attributes[:content_details] = data['contentDetails']
         end
       end
 
