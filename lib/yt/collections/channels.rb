@@ -13,6 +13,15 @@ module Yt
         super(data).tap do |attributes|
           attributes[:statistics] = data['statistics']
           attributes[:content_details] = data['contentDetails']
+          attributes[:topic_details] = get_topic_details(data)
+        end
+      end
+
+      def get_topic_details(data)
+        if data.has_key?('topicDetails') && data['topicDetails'].has_key?('topicIds')
+          data['topicDetails']['topicIds']
+        else
+          []
         end
       end
 

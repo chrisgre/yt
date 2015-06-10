@@ -238,6 +238,10 @@ module Yt
     
       has_attribute :content_details  
 
+    ### TOPIC DETAILS ###
+
+      has_attribute :topic_details
+
     ### PRIVATE API ###
 
       # @private
@@ -253,6 +257,9 @@ module Yt
         end
         if options[:content_owner_details]
           @content_owner_detail = ContentOwnerDetail.new data: options[:content_owner_details]
+        end
+        if options[:topic_details]
+          @topic_details = options[:topic_details]
         end
       end
 
